@@ -1,0 +1,31 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "gen-search": "node scripts/gen-search.mjs",
+    "build": "node scripts/gen-search.mjs && next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "framer-motion": "^12.6.3",
+    "gray-matter": "^4.0.3",
+    "next": "^15.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
+    "@tailwindcss/postcss": "^4.1.6",
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "eslint": "^10.7.0",
+    "eslint-config-next": "^16.2.10",
+    "tailwindcss": "^4.1.6",
+    "typescript": "^5.8.3"
+  }
+}

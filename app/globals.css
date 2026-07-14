@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-bg: #f4f5f0;
+  --color-primary: #1e2d3d;
+  --color-secondary: #5a6d7e;
+  --color-muted: #8899aa;
+  --color-faint: #a0b0c0;
+  --color-divider: #e0e2db;
+  --color-accent: #6b8aab;
+  --font-serif: "Noto Serif SC", "Songti SC", "SimSun", serif;
+}
+
+body {
+  font-family: var(--font-serif);
+  color: var(--color-primary);
+  background-color: var(--color-bg);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: rgba(107, 138, 171, 0.2);
+  color: var(--color-primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+a {
+  color: var(--color-accent);
+  transition: color 200ms ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+article p {
+  margin-bottom: 1.5em;
+}
+
+article img, article video {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+
+article blockquote {
+  border-left: 3px solid var(--color-divider);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  color: var(--color-secondary);
+  font-style: italic;
+}
+
+article ul, article ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5em;
+}
+
+article li {
+  margin-bottom: 0.5em;
+}
+
+article code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 0.15em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+
+article pre {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+article pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+
+article hr {
+  border: none;
+  border-top: 1px solid var(--color-divider);
+  margin: 3rem 0;
+}

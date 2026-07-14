@@ -1,0 +1,94 @@
+[
+  {
+    "type": "article",
+    "slug": "desk-setup-2026",
+    "title": "我的 2026 桌面配置",
+    "summary": "分享一下我目前的日常工作桌面配置，包括硬件、软件和一些小工具。",
+    "text": "硬件 主力机是一台 ThinkPad X1 Carbon Gen 12，搭配 Dell U2723QE 4K 显示器。键盘用的是 HHKB Professional Hybrid Type-S，鼠标是 Logitech MX Master 3S。 软件栈 编辑器：VS Code + Neovim，两者切换使用 终端：Windows Terminal + PowerShell 7 + oh-my-posh 笔记：Obsidian，所有笔记本地 Markdown 管理 浏览器：Arc，分割视图和空间功能太好用 小而美的工具 Everything：Windows 上的秒搜文件神器 Ditto：剪贴板历史管理 AutoHotkey：自定义快捷键，一键启动常用工作区 这套配置用了一年多，暂时没有想折腾的部分。如果你也在搭自己的桌面环境，希望对你有参考价值。",
+    "date": "2026-06-20",
+    "tags": [
+      "效率",
+      "桌面",
+      "工具"
+    ],
+    "url": "/articles/desk-setup-2026"
+  },
+  {
+    "type": "article",
+    "slug": "hello-world",
+    "title": "博客已上线",
+    "summary": "经过一番打磨，我的个人博客终于上线了。聊聊搭建过程中的思考和选择。",
+    "text": "为什么又要写博客 在 2026 年，写博客似乎是一件复古的事情。短视频、社交媒体、各种碎片化平台占据了人们大部分的注意力。但恰恰因为如此，我反而觉得拥有一个属于自己的、不受算法支配的文字空间变得更加重要。 这里没有评论区、没有点赞数、没有推荐流。只有文字和读者之间最朴素的关系。 技术选型 这次我选择了 Next.js SSG——全静态生成，托管在自有云服务器上。整个站点没有数据库，所有文章都是本地 Markdown 文件，用 解析 frontmatter， 渲染为 HTML。 设计上追求极简杂志风格。字体全部使用思源宋体，配色以浅灰底搭配藏蓝文字。动效克制，只用淡入和逐字渐显两种。 后续计划 目前只有文章板块，接下来会陆续补上： 瞬间（短图文瀑布流） 项目展示 归档页 慢慢来。",
+    "date": "2026-07-14",
+    "tags": [
+      "博客",
+      "Next.js",
+      "技术"
+    ],
+    "url": "/articles/hello-world"
+  },
+  {
+    "type": "article",
+    "slug": "rust-ownership",
+    "title": "Rust 学习笔记：所有权系统",
+    "summary": "花了三周啃完 Rust 的所有权系统，把关键概念整理成一篇文章。",
+    "text": "所有权规则 Rust 的所有权系统有三条核心规则： 1. Rust 中每一个值都有一个所有者 2. 同一时间只能有一个所有者 3. 当所有者离开作用域，值将被释放 这三条规则看起来简单，但衍生出的概念——借用、生命周期、移动语义——构成了 Rust 最陡峭的学习曲线。 借用 与其转移所有权，我们更常用的方式是借用：通过引用让函数临时使用值而不获取所有权。 可变引用 可变引用有且仅有一个的限制，这是 Rust 在编译期防止数据竞争的机制。一开始觉得很不自由，但理解之后会发现它把很多运行时 Bug 提前到了编译期。 Rust 的学习曲线是真的陡，但一旦越过所有权系统这道坎，后面的路会顺畅很多。",
+    "date": "2026-05-15",
+    "tags": [
+      "Rust",
+      "编程",
+      "笔记"
+    ],
+    "url": "/articles/rust-ownership"
+  },
+  {
+    "type": "project",
+    "slug": "cli-tools",
+    "title": "CLI 工具集",
+    "summary": "一组用 Rust 编写的小型命令行工具，涵盖文件处理、JSON 转换和 HTTP 测试。",
+    "text": "概述 把工作中反复用到的几个命令行操作封装成了工具集，全部用 Rust 实现，单二进制、零依赖。 工具列表 jfmt JSON 格式化工具，支持 stdin 管道和文件输入。 fsum 目录文件校验和生成/验证。用于确认文件传输完整性。 ht 一个小巧的 HTTP 测试客户端，类似 httpie 但更轻量。 所有工具都发布到了 GitHub，欢迎 Star 和使用。",
+    "date": "2026-04-10",
+    "tags": [
+      "Rust",
+      "CLI",
+      "Tools"
+    ],
+    "url": "/projects/cli-tools"
+  },
+  {
+    "type": "project",
+    "slug": "quiet-record",
+    "title": "静谧录",
+    "summary": "一个 Markdown 驱动的极简个人博客，Next.js SSG + Tailwind CSS。",
+    "text": "动机 需要一个不受平台约束、完全自己掌控的内容空间。现有博客平台要么太重，要么定制性太差。 技术方案 框架：Next.js 15 + SSG（） 样式：Tailwind CSS 4，自定义主题色（浅灰 + 藏蓝） 内容：Markdown + gray-matter + remark 动效：Framer Motion（淡入 + 逐字渐显） 字体：Noto Serif SC（思源宋体） 设计理念 极简杂志风格。去掉一切多余的视觉元素，让文字和排版本身成为设计。克制动效，只用两种：滚动淡入和逐字渐显。 当前状态 已上线第一版，后续会持续迭代。",
+    "date": "2026-07-14",
+    "tags": [
+      "Next.js",
+      "博客",
+      "Side Project"
+    ],
+    "url": "/projects/quiet-record"
+  },
+  {
+    "type": "moment",
+    "slug": "first-moment",
+    "title": "",
+    "summary": "新版博客的第一个瞬间。极简，但舒服。",
+    "text": "新版博客的第一个瞬间。极简，但舒服。",
+    "date": "2026-07-14",
+    "tags": [],
+    "mediaType": "none",
+    "url": "/moments"
+  },
+  {
+    "type": "moment",
+    "slug": "interstellar",
+    "title": "",
+    "summary": "又看了一遍《星际穿越》。每次看都有不同的感受。这次被'爱是唯一可以超越时空的维度'这句台词击中了。",
+    "text": "又看了一遍《星际穿越》。每次看都有不同的感受。这次被'爱是唯一可以超越时空的维度'这句台词击中了。",
+    "date": "2026-07-13",
+    "tags": [],
+    "mediaType": "none",
+    "url": "/moments"
+  }
+]
