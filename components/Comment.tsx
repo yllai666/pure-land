@@ -1,35 +1,36 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { GISCUS } from "@/lib/constants";
+import { usePathname } from "next/navigation";
+import { CUSDIS } from "@/lib/constants";
 
 export default function Comment() {
   const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (!GISCUS.repo || !GISCUS.repoId || !GISCUS.categoryId) return;
-    if (ref.current?.querySelector("script")) return;
+    if (!CUSDIS.appId || !ref.current) return;
+    if (ref.current.querySelector("iframe, #cusdis_thread script")) return;
+
+    ref.current.innerHTML = "";
+    const el = document.createElement("div");
+    el.id = "cusdis_thread";
+    el.setAttribute("data-host", CUSDIS.host);
+    el.setAttribute("data-app-id", CUSDIS.appId);
+    el.setAttribute("data-page-id", pathname);
+    el.setAttribute("data-page-url", location.href);
+    el.setAttribute("data-page-title", document.title);
+    el.setAttribute("data-theme", CUSDIS.theme);
+    ref.current.appendChild(el);
 
     const script = document.createElement("script");
-    script.src = "https://giscus.app/client.js";
     script.async = true;
-    script.crossOrigin = "anonymous";
-    script.setAttribute("data-repo", GISCUS.repo);
-    script.setAttribute("data-repo-id", GISCUS.repoId);
-    script.setAttribute("data-category", "Announcements");
-    script.setAttribute("data-category-id", GISCUS.categoryId);
-    script.setAttribute("data-mapping", "pathname");
-    script.setAttribute("data-strict", "0");
-    script.setAttribute("data-reactions-enabled", "1");
-    script.setAttribute("data-emit-metadata", "0");
-    script.setAttribute("data-input-position", "bottom");
-    script.setAttribute("data-theme", "preferred_color_scheme");
-    script.setAttribute("data-lang", "zh-CN");
-    script.setAttribute("data-loading", "lazy");
-    ref.current?.appendChild(script);
-  }, []);
+    script.defer = true;
+    script.src = `${CUSDIS.host}/js/cusdis.es.js`;
+    ref.current.appendChild(script);
+  }, [pathname]);
 
-  if (!GISCUS.repo || !GISCUS.repoId || !GISCUS.categoryId) {
+  if (!CUSDIS.appId) {
     return (
       <div className="mt-12 pt-8 border-t border-[#e0e2db] text-center text-sm text-[#a0b0c0]">
         评论区待配置
@@ -37,5 +38,5 @@ export default function Comment() {
     );
   }
 
-  return <div ref={ref} className="mt-12 pt-8 border-t border-[#e0e2db]" />;
+  return <div ref={ref} className="mt-12 pt-8 border-t border-[#e0e2db]" id="cusdis_thread" />;
 }

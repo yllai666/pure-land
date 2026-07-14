@@ -10,10 +10,10 @@ export const SITE = {
   },
 } as const;
 
-export const GISCUS = {
-  repo: "yllai666/pure-land",
-  repoId: "R_kgDOTX27XA",
-  categoryId: "DIC_kwDOTX27XM4DBKRV",
+export const CUSDIS = {
+  host: "https://cusdis.com",
+  appId: "20da3647-4f42-4518-b742-52727900e4e8",
+  theme: "auto",
 } as const;
 
 export const NAV_LINKS = [
