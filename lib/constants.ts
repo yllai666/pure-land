@@ -11,9 +11,9 @@ export const SITE = {
 } as const;
 
 export const GISCUS = {
-  repo: "" as `${string}/${string}`,
-  repoId: "",
-  categoryId: "",
+  repo: "yllai666/pure-land",
+  repoId: "R_kgDOTX27XA",
+  categoryId: "DIC_kwDOTX27XM4DBKRV",
 } as const;
 
 export const NAV_LINKS = [
